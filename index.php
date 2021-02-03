@@ -26,14 +26,17 @@ $message = 'Hello World, sending a simple mail !';
  */
 // TODO Votre code ici.
 
-$messageLong = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet gravida mauris, in venenatis 
-erat. Aliquam erat volutpat. Sed maximus sit amet ante at sagittis. Nullam auctor sodales ligula, at hendrerit purus 
-imperdiet sit amet. Sed mauris augue, vestibulum et cursus eget, rutrum id sapien. Nulla vel urna velit. Suspendisse
- congue at libero non luctus. Nullam eget justo vel dolor vulputate sodales. Fusce elementum bibendum elit, sit amet 
- fringilla ipsum varius nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
- In viverra diam scelerisque augue luctus, vel condimentum lorem luctus. Ut id congue dui, vel malesuada augue. In 
- ullamcorper dui ut feugiat tempus. Suspendisse tellus tellus, condimentum ac tristique quis, efficitur eu nisl. 
- Praesent efficitur ipsum et erat volutpat, varius laoreet lorem mollis. Quisque.";
+$messageLong = "Le Royal Rumble de 2021 a commence avec Edge et Randy Orton les anciens amis et maintenant pire ennemie on commence. Edge n etais pas la
+pour eliminer Orton du match il etais la pour eliminer Orton du buisnnes. Les catcheurs sont rentre petit a petit. Le troisieme c etais Sami Zayn
+il a fait une alliance avec Orton pour eliminer Edge mais l aliance n es pas rester forte Orton sort un RKO. Nous avons assister au debut de Damian Priest
+ancien NXT Norht American Championship et nous avons vu le retour de Christian sur les rings 
+et bien sur celui du Mesiah Seth Rollins qui rentre en numero 29. Ils nous restent que 4 competiteurs Edge Christian Seth Rollins Braun Strowman
+ Rollins tente une alliance avec Braun mais non ça ne lui vas pas Chistian tente d eliminer Strowman Edge vien l aider et Rollins vient en profiter
+pour eliminer Christian et Braun. Il reste Edge et Rollins affiche de reve pour un Wrestlemenia. Edge elimine Rollins mais n as pas gagne en effet sorti de 
+nulle part un RKO de Orton qui ete toujour dans la match il veut eliminer Edge mais La Rated R Superstar contre et elimine Orton et gagne le Royal Rumble 2021.
+Il peut defier le WWE championship Drew ou comme Paul Heyman nous le presente 'Ladies and Gentleman My Names is Paul Heyman and i am 
+the consulting of Defending Undisputed WWE Universal Champion The Tribal Chief Roman Reigns'. Autant vous dire que je prefere la deuxieme options.
+Imaginez Roman Reigns vs Edge deux exellents catcheur Spear vs Spear.";
 
 $messageLong = wordwrap($messageLong, 70 , "\r\n");
 $success = mail($to, 'test', $messageLong);
@@ -41,9 +44,7 @@ if (!$success) {
     echo "Une erreur est survenue lors de l'envoi du mail<br>";
     echo error_get_last()['message']."<br>";
 }
-else{
-    echo "Le message a bien été envoyé. Merci !<br>";
-}
+else echo "Le message a bien été envoyé. Merci !<br>";
 
 
 file_put_contents("mail.txt", $messageLong, FILE_APPEND);
