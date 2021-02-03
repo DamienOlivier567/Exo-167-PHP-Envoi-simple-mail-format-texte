@@ -11,6 +11,7 @@ $to = '';
 $message = 'Hello World, sending a simple mail !';
 // TODO Votre code ici.
 
+//mail($to, 'test', $message, '-f '.$from);
 
 /**
  * 4. Commentez le code précédent, mais gardez les variables $from et $to
@@ -24,3 +25,27 @@ $message = 'Hello World, sending a simple mail !';
  *     N'écrasez pas les valeurs déjà existantes ( s'il y en a ).
  */
 // TODO Votre code ici.
+
+$messageLong = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet gravida mauris, in venenatis 
+erat. Aliquam erat volutpat. Sed maximus sit amet ante at sagittis. Nullam auctor sodales ligula, at hendrerit purus 
+imperdiet sit amet. Sed mauris augue, vestibulum et cursus eget, rutrum id sapien. Nulla vel urna velit. Suspendisse
+ congue at libero non luctus. Nullam eget justo vel dolor vulputate sodales. Fusce elementum bibendum elit, sit amet 
+ fringilla ipsum varius nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+ In viverra diam scelerisque augue luctus, vel condimentum lorem luctus. Ut id congue dui, vel malesuada augue. In 
+ ullamcorper dui ut feugiat tempus. Suspendisse tellus tellus, condimentum ac tristique quis, efficitur eu nisl. 
+ Praesent efficitur ipsum et erat volutpat, varius laoreet lorem mollis. Quisque.";
+
+$messageLong = wordwrap($messageLong, 70 , "\r\n");
+$success = mail($to, 'test', $messageLong);
+if (!$success) {
+    echo "Une erreur est survenue lors de l'envoi du mail<br>";
+    echo error_get_last()['message']."<br>";
+}
+else{
+    echo "Le message a bien été envoyé. Merci !<br>";
+}
+
+
+file_put_contents("mail.txt", $messageLong, FILE_APPEND);
+file_put_contents("mail.txt", " / ".$to, FILE_APPEND);
+file_put_contents("mail.txt", "\n\n", FILE_APPEND);
